@@ -74,7 +74,7 @@ You can install Postman via this website: https://www.postman.com/downloads/
   - [x] Commit: `Implement notify function in Notification service to notify each Subscriber.`
   - [x] Commit: `Implement publish function in Program service and Program controller.`
   - [x] Commit: `Edit Product service methods to call notify after create/delete.`
-  - [ ] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
+  - [x] Write answers of your learning module's "Reflection Publisher-3" questions in this README.
 
 ## Your Reflections
 
@@ -97,7 +97,14 @@ This is the place for you to write reflections:
    Jawaban : Memisahkan "Service" dan "Repository" dari Model dalam MVC mengikuti _separation of concerns principle_, memungkinkan tanggung jawab yang berbeda. "Repository" mengelola penyimpanan dan pengambilan data, sementara "Service" mengimplementasikan logika bisnis. Hal ini tidak hanya membuat kode lebih mudah dipahami dan dipelihara, tetapi juga dapat memberikan _testing_ yang lebih baik dan memberikan fleksibilitas yang lebih besar dalam _maintain_ komponen-komponen ini tanpa memengaruhi yang lain.
 2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?  
    Jawaban : Jika kita memilih untuk tidak memisahkan masalah ke dalam komponen yang berbeda seperti "Service" dan "Repository", kompleksitas setiap model (Program, Subscriber, Notification) dapat meningkat secara signifikan. Hal ini akan membuat model-model tersebut bertanggung jawab tidak hanya untuk representasi data, tetapi juga untuk mencakup logika bisnis dan penyimpanan/pengambilan data. Akibatnya, perubahan dalam satu aspek, seperti modifikasi pada aturan bisnis. Penggabungan tanggung jawab ini akan memperkuat kerumitan model, menjadikannya lebih rumit untuk dipelihara. Selain itu, model-model tersebut kemungkinan besar akan saling terkait erat (_coupling_), sehingga menimbulkan ketergantungan di antara mereka.
-3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.  
    Jawaban : Saya sudah pernah menggunakan Postman untuk melakukan mengirim permintaan HTTP ke endpoint-endpoint API dalam proyek yang saya kerjakan. Dengan menggunakan Postman saya bisa mengetahui response yang dikembalikan sesuai dengan request yang kita berikan, header dan body saat mengirim request sehingga memudahkan untuk melakukan testing. Selain itu juga, saya dapat melakukan documentasi terhadap API yang sedang dibuat.
 
 #### Reflection Publisher-3
+
+1. Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?  
+   Jawaban : Dalam tutorial ini menerapkan variasi model Push dari Observer Pattern. Dalam model Push, setiap Observer atau Subscriber mendapatkan notifikasi untuk setiap create, delete dan publish dari Publisher.
+2. What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull)  
+   Jawaban : Jika kita menggunakan model Pull dalam kasus tutorial ini, salah satu keuntungan utama adalah kontrol yang diberikan kepada pelanggan atas proses pengambilan data. Dengan model ini, pelanggan dapat memutuskan kapan dan data apa yang ingin mereka ambil. Namun, kelemahan dari model Pull termasuk peningkatan kompleksitas karena pelanggan perlu mengetahui bagaimana cara mengambil data dari Publisher. Selain itu, jika pengambilan data dilakukan secara sering, hal tersebut bisa menimbulkan masalah kinerja karena setiap pengambilan data merupakan permintaan yang membutuhkan _resource_.
+3. Explain what will happen to the program if we decide to not use multi-threading in the notification process.  
+   Jawaban : Tanpa multi-threading, notifikasi dikirim ke pelanggan secara berurutan, menyebabkan program terhenti selama setiap notifikasi hingga selesai, yang berpotensi mengakibatkan penundaan jika tugas notifikasi memerlukan periode pemrosesan yang lama, seperti permintaan jaringan dengan waktu respons yang lama.
