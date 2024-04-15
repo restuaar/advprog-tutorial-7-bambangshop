@@ -66,8 +66,8 @@ You can install Postman via this website: https://www.postman.com/downloads/
   - [x] Commit: `Create Notification service struct skeleton.`
   - [x] Commit: `Implement subscribe function in Notification service.`
   - [x] Commit: `Implement subscribe function in Notification controller.`
-  - [ ] Commit: `Implement unsubscribe function in Notification service.`
-  - [ ] Commit: `Implement unsubscribe function in Notification controller.`
+  - [x] Commit: `Implement unsubscribe function in Notification service.`
+  - [x] Commit: `Implement unsubscribe function in Notification controller.`
   - [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 - **STAGE 3: Implement notification mechanism**
   - [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
@@ -92,5 +92,12 @@ This is the place for you to write reflections:
    Jawaban : The Singleton pattern memastikan bahwa sebuah kelas hanya memiliki satu instance dan menyediakan titik akses global ke kelas tersebut. Di sisi lain, DashMap adalah implementasi HashMap yang aman untuk thread. Menerapkan Singleton pattern untuk variabel SUBSCRIBERS tidak akan memberikan keamanan thread. Pola ini hanya akan memastikan bahwa hanya ada satu instance dari daftar SUBSCRIBERS, tetapi tidak memastikan keamanan thread. Jadi, dalam kasus ini, DashMap diperlukan untuk memastikan keamanan thread, dan Singleton pattern tidak dapat menggantikannya.
 
 #### Reflection Publisher-2
+
+1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?  
+   Jawaban : Memisahkan "Service" dan "Repository" dari Model dalam MVC mengikuti _separation of concerns principle_, memungkinkan tanggung jawab yang berbeda. "Repository" mengelola penyimpanan dan pengambilan data, sementara "Service" mengimplementasikan logika bisnis. Hal ini tidak hanya membuat kode lebih mudah dipahami dan dipelihara, tetapi juga dapat memberikan _testing_ yang lebih baik dan memberikan fleksibilitas yang lebih besar dalam _maintain_ komponen-komponen ini tanpa memengaruhi yang lain.
+2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?  
+   Jawaban : Jika kita memilih untuk tidak memisahkan masalah ke dalam komponen yang berbeda seperti "Service" dan "Repository", kompleksitas setiap model (Program, Subscriber, Notification) dapat meningkat secara signifikan. Hal ini akan membuat model-model tersebut bertanggung jawab tidak hanya untuk representasi data, tetapi juga untuk mencakup logika bisnis dan penyimpanan/pengambilan data. Akibatnya, perubahan dalam satu aspek, seperti modifikasi pada aturan bisnis. Penggabungan tanggung jawab ini akan memperkuat kerumitan model, menjadikannya lebih rumit untuk dipelihara. Selain itu, model-model tersebut kemungkinan besar akan saling terkait erat (_coupling_), sehingga menimbulkan ketergantungan di antara mereka.
+3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+   Jawaban : Saya sudah pernah menggunakan Postman untuk melakukan mengirim permintaan HTTP ke endpoint-endpoint API dalam proyek yang saya kerjakan. Dengan menggunakan Postman saya bisa mengetahui response yang dikembalikan sesuai dengan request yang kita berikan, header dan body saat mengirim request sehingga memudahkan untuk melakukan testing. Selain itu juga, saya dapat melakukan documentasi terhadap API yang sedang dibuat.
 
 #### Reflection Publisher-3
