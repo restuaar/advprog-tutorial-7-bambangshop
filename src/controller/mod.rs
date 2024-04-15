@@ -12,12 +12,13 @@ pub fn route_stage() -> AdHoc {
                     product::create,
                     product::list,
                     product::read,
-                    product::delete
+                    product::delete,
+                    product::publish
                 ],
             )
             .mount(
                 "/notification",
-                routes![notification::subscribe, notification::unsubscribe,],
+                routes![notification::subscribe, notification::unsubscribe],
             )
     });
 }
